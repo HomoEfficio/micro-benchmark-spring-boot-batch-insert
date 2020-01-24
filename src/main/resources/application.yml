@@ -1,0 +1,27 @@
+spring.datasource:
+  driverClassName: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/batch_insert?serverTimezone=Asia/Seoul&autoReconnect=true&characterEncoding=UTF-8&rewriteBatchedStatements=true
+  #  url: jdbc:mysql://localhost:3306/batch_insert?serverTimezone=Asia/Seoul?autoReconnect=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&profileSQL=true
+  username: root
+  password: root
+  initialization-mode: always
+
+rows: 10000
+batchSize: 500
+
+spring.jpa:
+  database: MYSQL
+  #  show-sql: true
+  properties.hibernate:
+    dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hbm2ddl.auto: create
+    jdbc.batch_size: ${batchSize}
+    generate_statistics: true
+
+#logging.level.org.hibernate:
+#  type.descriptor.sql: TRACE
+
+# You can exclude Hibernate if you want to use JDBC only
+#spring.autoconfigure.exclude:
+#  - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+
