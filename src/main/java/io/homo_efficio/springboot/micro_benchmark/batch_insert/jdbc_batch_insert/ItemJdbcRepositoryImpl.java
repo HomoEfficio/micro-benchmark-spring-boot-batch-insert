@@ -2,6 +2,7 @@ package io.homo_efficio.springboot.micro_benchmark.batch_insert.jdbc_batch_inser
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -15,6 +16,7 @@ import java.util.List;
  * @author homo.efficio@gmail.com
  * created on 2020-01-25
  */
+@Profile("jdbc")
 @Repository
 @RequiredArgsConstructor
 public class ItemJdbcRepositoryImpl implements ItemJdbcRepository {
