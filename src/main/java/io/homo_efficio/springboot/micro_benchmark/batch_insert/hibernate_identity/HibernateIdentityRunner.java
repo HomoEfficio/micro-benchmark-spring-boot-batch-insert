@@ -35,6 +35,6 @@ public class HibernateIdentityRunner implements CommandLineRunner {
         }
         itemIdentityService.saveAll(items);
         long endTime = System.currentTimeMillis();
-        log.info("OOO Elapsed: " + ((endTime - startTime) / 1000.0f));
+        log.info("OOO Elapsed: {} secs", ((endTime - startTime) / 1000.0f));
     }
 }
