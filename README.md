@@ -1,20 +1,14 @@
-# Hibernate with `GenerationType.IDENTITY` vs JdbcTemplate with batch insert.
+# Batch Insert Micro Benchmark
 
 Simple micro benchmark test project for batch insert in Spring Boot + MySQL.
 
-Actually it is not possible to use **efficient** batch inserts in Hibernate.  
+Spring Data JDBC vs Spring Data JPA SEQUENCE vs Spring Data JPA IDENTITY.
 
-Why?
+Play with this application and have fun.
 
-You can not use batch inserts when you choose `GenerationType.IDENTITY`, but `GenerationType.IDENTITY` is still much faster than `GenerationType.AUTO` which supports batch inserts. See https://stackoverflow.com/a/27732138 for details.
+# Acknowledgement
 
-So there is no efficient way to use batch inserts in Hibernate.
-
-But if you use JdbcTemplate instead of Hibernate, you can make the best of batch inserts which is far more faster than `GenerationType.IDENTITY`.
-
-And of course, you can use JdbcTemplate and Hibernate together.
-
-Play with this application and have fun. 
+I got solution for Spring Data JPA SEQUENCE from [smartyansh's blog post](https://dev.to/smartyansh/best-possible-hibernate-configuration-for-batch-inserts-2a7a). 
 
 # Prerequisites
 
@@ -24,10 +18,16 @@ Play with this application and have fun.
 
 # How to run
 
-- To run Hibernate version:  
+- To run IDENTITY version:  
 
     ```
-    SPRING_PROFILES_ACTIVE=hibernate ./gradlew clean bootRun
+    SPRING_PROFILES_ACTIVE=identity ./gradlew clean bootRun
+    ```
+  
+- To run SEQUENCE version:  
+
+    ```
+    SPRING_PROFILES_ACTIVE=sequence ./gradlew clean bootRun
     ```
 
 - To run JdbcTemplate version:  
